@@ -35,26 +35,52 @@ int weight[12][12] = {
     {inf, inf, inf, inf, inf, inf, inf, inf, 1, inf, 1, 0}, //12
 };
 
-
-void printables();
-void init();
-int getClosest();
-void algorithm();
-
 int main(void)
 {
-    
     system("cls");
-    init();
-    algorithm();
-    printables();
 
-    return 0;
-}
+    //init
+    for(int i=0; i<D; i++)
+    {
+        dist[i] = inf;
+    }
+    dist[source] = 0;
 
-//print the results
-void printables(){
-    cout<<"PLC Project preview, Dijkstra's Algorithm\n";
+
+    //algorithm
+    for(int i=0; i<D; i++)
+    {
+            //
+                //getclosest
+        int min_dist=inf;
+        int closenode;
+        for(int i=0; i<D; i++)
+        {
+            if ( !checked[i] && dist[i]<min_dist)
+                    {
+                        min_dist = dist[i];
+                        closenode = i;
+                    }
+        }   
+
+            //
+
+        int closestnode = closenode;
+        checked[closestnode] = true;
+
+        for(int nbr=0; nbr<D; nbr++)
+        {
+            if(weight[closestnode][nbr] != inf && dist[nbr] > dist[closestnode] + weight[closestnode][nbr])
+            {
+                dist[nbr] = dist[closestnode] + weight[closestnode][nbr];
+                parent[nbr] = closestnode;
+            }
+           
+        }
+           
+        }
+
+        cout<<"PLC Project preview, Dijkstra's Algorithm\n";
     cout<<"Number of doors: "<<D<<"\n";
     cout<<"Source node:"<<source<<" Room number:"<< to_string(source+1)<<"\n";
     cout << "\n";
@@ -86,54 +112,5 @@ void printables(){
 
     }
     system("start grid.png");
-
+    return 0;
 }
-
-//set all distances to infinity except the source node
-void init() 
-{
-    for(int i=0; i<D; i++)
-    {
-        dist[i] = inf;
-    }
-    dist[source] = 0;
-}
-
-// get the closest node to the source node 
-int getClosest() {
-    int min_dist=inf;
-    int closenode;
-    for(int i=0; i<D; i++)
-    {
-        if ( !checked[i] && dist[i]<min_dist)
-                {
-                    min_dist = dist[i];
-                    closenode = i;
-                }           
-    }
-    return closenode;   
-}
-
-
-void algorithm() //Each iteration of this selects a node to visit
-{
-
-    for(int i=0; i<D; i++)
-    {
-        int closestnode = getClosest();
-        checked[closestnode] = true;
-
-        for(int nbr=0; nbr<D; nbr++)
-        {
-            if(weight[closestnode][nbr] != inf && dist[nbr] > dist[closestnode] + weight[closestnode][nbr])
-            {
-                dist[nbr] = dist[closestnode] + weight[closestnode][nbr];
-                parent[nbr] = closestnode;
-            }
-           
-        }
-           
-        }
-    }
-
-
