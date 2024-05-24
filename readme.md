@@ -1,8 +1,11 @@
-a preliminary code for my PLC class project, a horror house game using Dijsktras Algorithm
+PLC project, made on PLCNext and preliminary C++ codes for Dijkstra's Algorithm
+
+PLCNext file is written on ST
+3*4 grid, every square is a room.
+Program lets you to choose a final node to travel, and Liam Neeson starts walking towards it
 
 dijkstra_mul named scripts calculate multiple shortest routes to destination node
 
 _unifuncs are just all functions in one main() body so it would be easier to implement to PLC(ST)
 
-wip:
-calculating multiple shortest routes if they exist
+![Uploading Ekran görüntüsü 2024-05-21 232119.png…]()
