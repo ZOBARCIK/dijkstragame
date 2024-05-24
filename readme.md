@@ -8,4 +8,4 @@ dijkstra_mul named scripts calculate multiple shortest routes to destination nod
 
 _unifuncs are just all functions in one main() body so it would be easier to implement to PLC(ST)
 
-![Uploading Ekran görüntüsü 2024-05-21 232119.png…]()
+![Ekran görüntüsü 2024-05-21 232119](https://github.com/ZOBARCIK/dijkstragame/assets/119112572/1a8a0795-234f-404b-a2e2-99484a89dbe1)
